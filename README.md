@@ -1,4 +1,4 @@
-# CoinBase-Pro-API
+# Unofficial CoinBase-Pro-API
 Python API for CoinBase Pro (reference: [Coinbase Pro Doc](https://docs.pro.coinbase.com/?python))
 
 ## Installation
