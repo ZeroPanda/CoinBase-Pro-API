@@ -5,7 +5,7 @@ get and copy `API KEY` , `API SECRET` and `PASSCODE`.
 Install the API setup.
 Import `coinpy` from `coinbaseapi`.
 ```
-from coinbasepro import coinbaseapi
+from coinbasepro.coinbaseapi import coinpy
 Coinbase = coinpy(API_KEY, API_SECRET, PASSCODE)
 ```
 ```
