@@ -1,5 +1,5 @@
 # CoinBase-Pro-API
-Python API for CoinBase Pro
+Python API for CoinBase Pro (reference: https://docs.pro.coinbase.com/?python#single-deposit)
 To run the API, activate API on your CoinBase Pro account.
 get and copy `API KEY` , `API SECRET` and `PASSCODE`.
 Install the API setup.
