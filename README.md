@@ -13,14 +13,14 @@ Python API for CoinBase Pro (reference: [Coinbase Pro Doc](https://docs.pro.coin
 
 - To run the API, activate API on your CoinBase Pro account.
 
-- Get and copy `API KEY` , `API SECRET` and `PASSCODE`.
+- Get and copy `API KEY` , `API SECRET` and `PASSPHRASE`.
 
 - Install the API setup.
 
 - Import `coinpy` from `coinbaseapi`.
 ```
 from coinbasepro.coinbaseapi import coinpy
-Coinbase = coinpy(API_KEY, API_SECRET, PASSCODE)
+Coinbase = coinpy(API_KEY, API_SECRET, PASSPHRASE)
 ```
 ```
 # Example: get all accounts info
