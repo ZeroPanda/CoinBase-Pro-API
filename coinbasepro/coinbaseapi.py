@@ -149,13 +149,9 @@ class coinpy(object):
         return r.json()
 
     ### POST ###
-    
-    # orders
-
-
 
     def payment_deposit(self, amountQTY, currencyQTY, paymentMID):
-        # Get deposit/payment-method
+        # post deposit/payment-method
         data = {
             "amount": str(amountQTY),
             "currency": str(currencyQTY),
@@ -167,7 +163,7 @@ class coinpy(object):
         return r.json()
 
     def account_deposit(self, amountQTY, currencyQTY, coinbaseAID):
-        # Get deposits/coinbase-account
+        # post deposits/coinbase-account
         data = {
             "amount": str(amountQTY),
             "currency": str(currencyQTY),
@@ -179,7 +175,7 @@ class coinpy(object):
         return r.json()
 
     def payment_withdrawal(self, amountQTY, currencyQTY, paymentMID):
-        # Get withdrawals/payment-method
+        # post withdrawals/payment-method
         data = {
             "amount": str(amountQTY),
             "currency": str(currencyQTY),
@@ -191,7 +187,7 @@ class coinpy(object):
         return r.json()
 
     def account_withdrawal(self, amountQTY, currencyQTY, coinbaseAID):
-        # Get withdrawals/coinbase-account
+        # post withdrawals/coinbase-account
         data = {
             "amount": str(amountQTY),
             "currency": str(currencyQTY),
@@ -203,7 +199,7 @@ class coinpy(object):
         return r.json()
 
     def crypto_withdrawal(self, amountQTY, currencyQTY, cryptoAddress):
-        # Get withdrawals/crypto
+        # post withdrawals/crypto
         data = {
             "amount": str(amountQTY),
             "currency": str(currencyQTY),
@@ -215,7 +211,7 @@ class coinpy(object):
         return r.json()
 
     def conversions(self, fromQTY, toQTY, amountQTY):
-        # Get conversions
+        # post conversions
         data = {
             "from": str(fromQTY),
             "to": str(toQTY),
@@ -227,7 +223,7 @@ class coinpy(object):
         return r.json()
 
     def get_reports(self,report_type,start_date,end_date):
-        # Get the reports
+        # post the reports
         data = {
             "type": str(report_type),
             "start_date": str(start_date),
@@ -238,7 +234,7 @@ class coinpy(object):
         return r.json()
 
     def profile_transfer(self, fromQTY, toQTY,currencyQTY, amountQTY):
-        # Get profile/transfer
+        # post profile/transfer
         data = {
             "from": str(fromQTY),
             "to": str(toQTY),
@@ -250,6 +246,37 @@ class coinpy(object):
         print(r.json())
         return r.json()
 
-    ### DELETE ###
-    # orders
+    def place_order(self, **kwarg):
+        # post limit orders
+        '''
+        client.place_order(size: "0.01", price: "0.100", side: "buy", product_id:  "BTC-USD")
+        '''
+        r = requests.post(
+            self.api_url + 'orders', auth=self.auth, json=kwarg)
+        print(r.json())
+        return r.json()
 
+    ### DELETE ###
+
+    def delete_order(self, order_id=''):
+        # Post cancel order
+        try:
+            r = requests.post(self.api_url + 'orders/' +
+                              order_id, auth=self.auth)
+            print(r.json())
+            return r.json()
+        except NameError:
+            pass
+
+    def delete_order_coid(self, client_oid=''):
+        # Post cancel order with client oid
+        try:
+            r = requests.post(self.api_url + 'orders/client:' +
+                              client_oid, auth=self.auth)
+            print(r.json())
+            return r.json()
+        except NameError:
+            pass
+
+
+    
